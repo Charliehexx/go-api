@@ -2,7 +2,10 @@ module github.com/Charliehexx/go-api
 
 go 1.21.4
 
-require gofr.dev v1.0.2
+require (
+	go.mongodb.org/mongo-driver v1.11.9
+	gofr.dev v1.0.2
+)
 
 require (
 	cloud.google.com/go v0.110.8 // indirect
@@ -110,7 +113,6 @@ require (
 	github.com/youmark/pkcs8 v0.0.0-20181117223130-1be2e3e5546d // indirect
 	github.com/yugabyte/gocql v0.0.0-20230831121436-1e2272bb6bb6 // indirect
 	github.com/zopsmart/gorm-opentelemetry v1.0.1-0.20211208062846-bf802ea1c033 // indirect
-	go.mongodb.org/mongo-driver v1.11.9 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib v1.2.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.46.1 // indirect
