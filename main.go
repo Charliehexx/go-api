@@ -2,10 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"time"
-
 	"gofr.dev/pkg/errors"
 	"gofr.dev/pkg/gofr"
+	"time"
 )
 
 type Car struct {

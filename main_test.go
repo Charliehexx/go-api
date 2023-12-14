@@ -1,14 +1,14 @@
-// main_test.go
 package main
 
 import (
 	"bytes"
-	"encoding/json"
 	"github.com/stretchr/testify/assert"
+	"gofr.dev/pkg/gofr"
 	"gofr.dev/pkg/gofr/request"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"time"
 )
 
 func TestIntegration(t *testing.T) {
@@ -22,18 +22,17 @@ func TestIntegration(t *testing.T) {
 		statusCode int
 		body       []byte
 	}{
-		{"get employees", http.MethodGet, "employee", http.StatusOK, nil},
-		{"post employees", http.MethodPost, "employee", http.StatusCreated, []byte(`{
-			"id":80,
-			"name":"mahak",
-			"email":"msjce",
-			"phone":928902,
-			"city":"kolkata"
+		{"get employees", http.MethodGet, "car", http.StatusOK, nil},
+		{"post employees", http.MethodPost, "car/enter", http.StatusCreated, []byte(`{
+			"id":1,
+			"model":"mahak",
+			"color":"msjce",
+			"repair_status":"928902"
 		}`),
 		}}
 
 	for i, tc := range tests {
-		req, _ := request.NewMock(tc.method, "http://localhost:3000/"+tc.endpoint, bytes.NewBuffer(tc.body))
+		req, _ := request.NewMock(tc.method, "http://localhost:9000/"+tc.endpoint, bytes.NewBuffer(tc.body))
 
 		c := http.Client{}
 
@@ -49,4 +48,39 @@ func TestIntegration(t *testing.T) {
 
 		_ = resp.Body.Close()
 	}
+}
+func TestCreateCar(t *testing.T) {
+	// Create a new instance of your application
+	go
+	app := gofr.New()
+
+	// Create a test server
+	server := httptest.NewServer(app.Handler())
+	defer server.Close()
+
+	// Prepare a JSON payload for the POST request
+	payload := `{"license_plate": "ABC123", "model": "Sedan", "color": "Blue", "repair_status": "Pending"}`
+
+	// Make a POST request to the /car/enter endpoint
+	resp, err := http.Post(server.URL+"/car/enter", "application/json", bytes.NewBufferString(payload))
+	if err != nil {
+		t.Fatalf("Error making POST request: %v", err)
+	}
+	defer resp.Body.Close()
+
+	// Verify the response status code is as expected
+	assert.Equal(t, http.StatusOK, resp.StatusCode, "Expected status code %d, got %d", http.StatusOK, resp.StatusCode)
+
+	// Decode the response body
+	var response interface{}
+	err = json.NewDecoder(resp.Body).Decode(&response)
+	if err != nil {
+		t.Fatalf("Error decoding response body: %v", err)
+	}
+
+	// Verify the response content, adjust based on your application logic
+	expectedResponse := "Car entered the garage successfully"
+	assert.Equal(t, expectedResponse, response, "Unexpected response content")
+
+	// You can add more assertions based on your application logic
 }
