@@ -18,7 +18,7 @@ Clone the repo and execute these commands.
 <h1> Postman Collection Workspace </h1>
 
 After successfully cloning the repository and configuring mysql database and running the project you can head to
-```[Postman Workspace](https://www.postman.com/maintenance-participant-81084192/workspace/my-workspace/collection/21737598-d2e28910-2ce0-4ffd-832c-41d0095bf966?action=share&source=copy-link&creator=21737598)``` and test the APIs by hitting on endpoints.Ensure that postman is installed on your system.
+[Postman Workspace](https://www.postman.com/maintenance-participant-81084192/workspace/my-workspace/collection/21737598-d2e28910-2ce0-4ffd-832c-41d0095bf966?action=share&source=copy-link&creator=21737598) and test the APIs by hitting on endpoints.Ensure that postman is installed on your system.
 
 ## <h2>Screenshot and Working of the APIs</h2>
    <h2>Working of POST Method.</h2>
@@ -58,9 +58,9 @@ After successfully cloning the repository and configuring mysql database and run
 ![Screenshot (30)](https://github.com/Charliehexx/go-api/assets/86345323/a7d5c8a5-660e-4f90-b00b-ba779f75747a)
     
 <h2>Sequence Diagram of the Proeject</h2>
+
 ```
-+----------------+         +--------------------------+         +-----------------
---+
++----------------+         +--------------------------+         +-------------------+
 |     Client     |         |         App              |         |      Database     |
 +----------------+         +--------------------------+         +-------------------+
        |                             |                                   |
@@ -104,6 +104,6 @@ After successfully cloning the repository and configuring mysql database and run
        |                             |--------------------------------->|
        |                             |                                   |
        |                             |           Return Response       |
-       |                             |<----------------------------------|       
+       |                             |<----------------------------------|
+       
 ```
-
