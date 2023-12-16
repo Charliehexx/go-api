@@ -9,11 +9,12 @@
 
 ## <h2>Setting up the Project</h2>
 
-  Clone the repo and exeucte these commands
+ ```Clone the repo and exeucte these commands
     1-  docker run --name gofr-mysql -e MYSQL_ROOT_PASSWORD=root123 -e MYSQL_DATABASE=test_db -p 3306:3306 -d mysql:8.0.30
     2-  docker exec -it gofr-mysql mysql -uroot -proot123 test_db -e "CREATE TABLE cars (id INT AUTO_INCREMENT PRIMARY KEY,license_plate VARCHAR(20) NOT NULL, model VARCHAR(50) NOT NULL,color VARCHAR(20) NOT NULL,repair_status VARCHAR(50) DEFAULT NULL,entry_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP );"
-     4-go mod tidy
-     5- go run main.go
+     3-go mod tidy
+     4- go run main.go
+```
 
 
 <h2>Screenshot of the working APIs</h2>
@@ -98,7 +99,6 @@
        |                             |--------------------------------->|
        |                             |                                   |
        |                             |           Return Response       |
-       |                             |<----------------------------------|
-       
+       |                             |<----------------------------------|       
 ```
 
