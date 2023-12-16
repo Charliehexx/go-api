@@ -7,8 +7,7 @@
     1- Go lang should be installed 
     2- Docker should be installed for container services
 
-
-## <h2>Setting up the Project</h2>
+ <h2>Setting up the Project</h2>
    1-Clone the repo 
    2-Execute this command  ``docker run --name gofr-mysql -e MYSQL_ROOT_PASSWORD=root123 -e MYSQL_DATABASE=test_db -p 3306:3306 -d mysql:8.0.30``` for running 
     mysql server and creeating the database locally using docker command.
